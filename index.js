@@ -6,6 +6,7 @@ const PORT = 1234;
 
 // Import Routes
 const authRoiute = require('./routes/auth');
+const postsRoute = require('./routes/posts');
 
 dotenv.config();
 
@@ -26,5 +27,6 @@ mongoose.connect(
 
 // Route Middlewares
 app.use('/api/user', authRoiute);
+app.use('/api/posts', postsRoute);
 
 app.listen(PORT, () => console.log(`🚀 🚀 🚀 Server running at port ${PORT}`));
