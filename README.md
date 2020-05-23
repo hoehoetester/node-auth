@@ -19,7 +19,7 @@
   - http://localhost:1234/api/user/register
     ```json
     {
-        "name": "hoehoe"
+        "name": "hoehoe",
         "email": "hoe@email.com",
         "password": "1122"
     }
