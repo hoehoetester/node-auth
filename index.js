@@ -4,7 +4,13 @@ const dotenv = require('dotenv');
 const app = express();
 const PORT = 1234;
 
+// Import Routes
+const authRoiute = require('./routes/auth');
+
 dotenv.config();
+
+// Middleware
+app.use(express.json());
 
 // Connect DB
 mongoose.connect(
@@ -17,9 +23,6 @@ mongoose.connect(
     console.log('🍺 🍺 🍺 connected DB');
   }
 );
-
-// Import Routes
-const authRoiute = require('./routes/auth');
 
 // Route Middlewares
 app.use('/api/user', authRoiute);
