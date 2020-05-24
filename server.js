@@ -1,14 +1,12 @@
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
-const dotenv = require('dotenv');
 const app = express();
-const PORT = 1234;
+const PORT = process.env.PORT || 5000;
 
 // Import Routes
 const authRoiute = require('./routes/auth');
 const postsRoute = require('./routes/posts');
-
-dotenv.config();
 
 // Middleware
 app.use(express.json());

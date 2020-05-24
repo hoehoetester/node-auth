@@ -2,7 +2,6 @@ const router = require('express').Router();
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require('../model/User');
-const auth = require('./verifyToken');
 
 // Validation
 const { registerValidation, loginValidation } = require('../validation');
