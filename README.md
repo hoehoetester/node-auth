@@ -6,8 +6,9 @@
 2. Run `npm install`
 3. Add `dotenv` file in root directory
    ```
-   DB_CONNECT = YOUR_MONGODB_CONNECTION_HERE
-   TOKEN_SECRET = ADD_SECRET_KEY_HERE__THIS_CAN_BE_RANDOM_TEXT
+   DB_CONNECT=YOUR_MONGODB_CONNECTION_HERE
+   PORT=1234
+   TOKEN_SECRET=ADD_SECRET_KEY_HERE__THIS_CAN_BE_RANDOM_TEXT
    ```
 4. Run `npm run start`
 
@@ -15,13 +16,15 @@
 
 ## URLs
 
+Open Postman and enter url;
+
 - ### POST
   - http://localhost:1234/api/user/register
     ```json
     {
-        "name": "hoehoe",
-        "email": "hoe@email.com",
-        "password": "1122"
+      "name": "hoehoe",
+      "email": "hoe@email.com",
+      "password": "yourpasswordhere"
     }
     ```
   - http://localhost:1234/api/user/login/

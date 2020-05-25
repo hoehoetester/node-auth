@@ -6,6 +6,14 @@ const User = require('../model/User');
 // Validation
 const { registerValidation, loginValidation } = require('../helper/validation');
 
+/**
+ * Register a new user
+ * @route   POST api/user/register
+ * @param   {string} name - user name
+ * @param   {string} email - user email
+ * @param   {string} password - password
+ * @private Public
+ */
 router.post('/register', async (req, res) => {
   // Validate the data
   const { error } = registerValidation(req.body);
@@ -31,14 +39,20 @@ router.post('/register', async (req, res) => {
   });
 
   try {
-    const savedUser = await user.save();
+    await user.save();
     res.send({ user: user._id });
   } catch (error) {
     res.status(400).send(error);
   }
 });
 
-// Login
+/**
+ * Login request
+ * @route   POST api/user/login
+ * @param   {string} email - user email
+ * @param   {string} password - password
+ * @private Public
+ */
 router.post('/login', async (req, res) => {
   // Validate the data
   const { error } = loginValidation(req.body);

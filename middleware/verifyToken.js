@@ -2,7 +2,7 @@ const jwt = require('jsonwebtoken');
 
 module.exports = function (req, res, next) {
   // Get token from header
-  const token = req.header('auth-token');
+  const token = req.header('x-auth-token');
 
   // Check if not token
   if (!token) {
@@ -10,8 +10,8 @@ module.exports = function (req, res, next) {
   }
 
   try {
-    const verified = jwt.verify(token, process.env.TOKEN_SECRET);
-    req.user = verified;
+    const decodedToken = jwt.verify(token, process.env.TOKEN_SECRET);
+    req.user = decodedToken;
 
     next();
   } catch (error) {
